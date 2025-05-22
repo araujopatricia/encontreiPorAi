@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feed</title>
+    <link rel="stylesheet" href="css/feed.css">
+</head>
+<body>
+<header>
+    <div class="container nav-container">
+        <div>
+            <a href="index.html">
+                <img src="imagens/index/logo.svg" alt="Encontrei por aí">
+            </a>
+        </div>
+
+        <div class="nav-menu">
+            <a href="inicio.html" class="nav-item">
+                <img src="imagens/feed/perfil1.jpg">
+                Início
+            </a>
+            <a href="parceiros.html" class="nav-item">
+                <img src="imagens/index/java.png">
+                Parceiros
+            </a>
+            <a href="forum.html" class="nav-item">
+                <img src="imagens/index/forum.png" class="nav-icon forum-icon">
+                Fórum
+            </a>
+            <a href="check-in.html" class="nav-item">
+                <img src="imagens/index/qrCode.png" class="nav-icon checkin-icon">
+                Check-in
+            </a>
+            <a href="perfil.html" class="nav-item">
+                <img src="imagens/index/perfil.png" class="nav-icon profile-icon">
+                Perfil
+            </a>
+        </div>
+    </div>
+</header>
+<main>
+     <div class="container">
+        <!-- Feed Principal -->
+        <main class="feed-main">
+            <div class="feed-header">
+                <h1 class="feed-title">Feed</h1>
+                <p class="feed-subtitle">Descubra cafés, livrarias e bibliotecas participantes da nossa rede de compartilhamento de livros</p>
+            </div>
+
+            <div class="feed-posts">
+                <!-- Post 1 - Marina Silva -->
+                <article class="post-card">
+                    <div class="post-header">
+                        <img src="imagens/feed/perfil2.jpg" alt="Marina Silva" class="user-avatar">
+                        <div class="user-info">
+                            <div class="user-name">Marina Silva</div>
+                            <div class="post-time">2 dias atrás</div>
+                        </div>
+                        <span class="post-badge badge-checkin">Check-in</span>
+                    </div>
+
+                    <div class="post-content">
+                        <img src="imagens/feed/perfil2.jpg" alt="Não me Faça Pensar: Atualizado" class="book-cover">
+                        <div class="post-text">
+                            <h3 class="post-title">Não me Faça Pensar: Atualizado</h3>
+                            <p class="post-description">Encontrado no Café Serendipita Icaraí</p>
+                        </div>
+                    </div>
+
+                    <div class="post-actions">
+                        <div class="post-stats">
+                            <div class="stat-item">
+                                <span>📖</span>
+                                <span>35</span>
+                            </div>
+                            <div class="stat-item">
+                                <span>💬</span>
+                                <span>35</span>
+                            </div>
+                        </div>
+                        <button class="share-btn">
+                            <span>↗</span>
+                            Compartilhar
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Post 2 - João Santos -->
+                <article class="post-card">
+                    <div class="post-header">
+                        <img src="/api/placeholder/40/40" alt="João Santos" class="user-avatar">
+                        <div class="user-info">
+                            <div class="user-name">João Santos</div>
+                            <div class="post-time">3 dias atrás</div>
+                        </div>
+                        <span class="post-badge badge-novo">Novo livro</span>
+                    </div>
+
+                    <div class="post-content">
+                        <img src="imagens/feed/perfil2.jpg" alt="O Alquimista" class="book-cover">
+                        <div class="post-text">
+                            <h3 class="post-title">O Alquimista</h3>
+                            <p class="post-description">Acabou de ser liberado! Fica a venda, você pode encontrar esse livro por aí</p>
+                        </div>
+                    </div>
+
+                    <div class="post-actions">
+                        <div class="post-stats">
+                            <div class="stat-item">
+                                <span>📖</span>
+                                <span>35</span>
+                            </div>
+                            <div class="stat-item">
+                                <span>💬</span>
+                                <span>35</span>
+                            </div>
+                        </div>
+                        <button class="share-btn">
+                            <span>↗</span>
+                            Compartilhar
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Post 3 - Claudio Augusto -->
+                <article class="post-card">
+                    <div class="post-header">
+                        <img src="/api/placeholder/40/40" alt="Claudio Augusto" class="user-avatar">
+                        <div class="user-info">
+                            <div class="user-name">Claudio Augusto</div>
+                            <div class="post-time">7 dias atrás</div>
+                        </div>
+                        <span class="post-badge badge-avaliacao">Jornada</span>
+                    </div>
+
+                    <div class="post-content">
+                        <img src="imagens/feed/perfil2.jpg" alt="Sapiens: Uma breve história da humanidade" class="book-cover">
+                        <div class="post-text">
+                            <h3 class="post-title">Sapiens: Uma breve história da humanidade</h3>
+                            <p class="post-description">Jornada do livro</p>
+                            <div class="book-location">
+                                <strong>Biblioteca Parque de Niterói, Centro</strong> (15 dias atrás)<br>
+                                <strong>Café Literário, São Domingos</strong> (10 dias atrás)<br>
+                                <strong>Praia do Icaraí</strong> (hoje)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="post-actions">
+                        <div class="post-stats">
+                            <div class="stat-item">
+                                <span>📖</span>
+                                <span>35</span>
+                            </div>
+                            <div class="stat-item">
+                                <span>💬</span>
+                                <span>35</span>
+                            </div>
+                        </div>
+                        <button class="share-btn">
+                            <span>↗</span>
+                            Compartilhar
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Post 4 - Julia Koch -->
+                <article class="post-card">
+                    <div class="post-header">
+                        <img src="/api/placeholder/40/40" alt="Julia Koch" class="user-avatar">
+                        <div class="user-info">
+                            <div class="user-name">Julia Koch</div>
+                            <div class="post-time">2 dias atrás</div>
+                        </div>
+                        <span class="post-badge badge-jornada">Avaliação</span>
+                    </div>
+
+                    <div class="post-content">
+                        <img src="imagens/feed/perfil2.jpg" alt="Livro" class="book-cover">
+                        <div class="post-text">
+                            <h3 class="post-title">Avaliou um livro</h3>
+                            <p class="post-description">Deu 5 estrelas para um livro incrível!</p>
+                        </div>
+                    </div>
+
+                    <div class="post-actions">
+                        <div class="post-stats">
+                            <div class="stat-item">
+                                <span>📖</span>
+                                <span>35</span>
+                            </div>
+                            <div class="stat-item">
+                                <span>💬</span>
+                                <span>35</span>
+                            </div>
+                        </div>
+                        <button class="share-btn">
+                            <span>↗</span>
+                            Compartilhar
+                        </button>
+                    </div>
+                </article>
+            </div>
+        </main>
+
+        <!-- Sidebar Direita -->
+        <aside class="sidebar">
+            <!-- Estatísticas de Leitura -->
+            <div class="sidebar-section">
+                <h2 class="sidebar-title">Suas estatísticas de leitura</h2>
+                <p class="sidebar-subtitle">Acompanhe sua jornada literária</p>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-number">15</span>
+                        <div class="stat-label">Livros liberados</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">35</span>
+                        <div class="stat-label">Livros encontrados</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">12</span>
+                        <div class="stat-label">Cidades alcançadas</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">9</span>
+                        <div class="stat-label">Total de Check-ins</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Livros Recentemente Ativos -->
+            <div class="sidebar-section">
+                <h2 class="sidebar-title">Livros recentemente ativos</h2>
+
+                <div class="recent-books">
+                    <div class="recent-book">
+                        <img src="imagens/feed/perfil2.jpg" alt="Não me Faça Pensar: Atualizado" class="recent-book-cover">
+                        <div class="recent-book-info">
+                            <div class="recent-book-title">Não me Faça Pensar: Atualizado</div>
+                            <div class="recent-book-details">Última atividade há 2 dias<br>Café no Centro. Hoje no Icaraí. 32 vezes</div>
+                        </div>
+                    </div>
+
+                    <div class="recent-book">
+                        <img src="imagens/feed/perfil2.jpg" alt="O mestre e Margarida" class="recent-book-cover">
+                        <div class="recent-book-info">
+                            <div class="recent-book-title">O mestre e Margarida</div>
+                            <div class="recent-book-details">Última atividade há 4 dias<br>Café no Centro. Hoje no Icaraí. 20 vezes</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+</main>
+<footer>
+    <div class="container footer-main">
+        <div class="footer-description">
+            <img src="imagens/logo.svg" alt="Encontrei por aí">
+            <p>Criando uma comunidade de leitores através de livros que viajam pelo mundo. Deixe um livro, encontre um
+                livro, junte-se à jornada.</p>
+        </div>
+
+        <div class="footer-links">
+            <div class="footer-menu">
+                <ul>
+                    <li><a href="#">Navegue</a></li>
+                    <li><a href="#">Início</a></li>
+                    <li><a href="#">Descubra</a></li>
+                    <li><a href="#">Parceiros</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-menu">
+                <ul>
+                    <li><a href="#">Sobre</a></li>
+                    <li><a href="#">Nossa História</a></li>
+                    <li><a href="#">Como funciona</a></li>
+                    <li><a href="#">Cafés parceiros</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-menu">
+                <ul>
+                    <li><a href="#">Comunidade</a></li>
+                    <li><a href="#">Resgistrar um livro</a></li>
+                    <li><a href="#">Encontrar um livro</a></li>
+                    <li><a href="#">Classificação</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-menu">
+            <ul class="social-icons">
+                <li><a href="#"> Conecte-se</a></li>
+                <a href="#"><img src="imagens/index/footer/instagram.png" alt="Instagram"></a>
+                <a href="#"><img src="imagens/index/footer/facebook.png" alt="Facebook"></a>
+                <a href="#"><img src="imagens/index/footer/twiiter.png" alt="Instagram"></a>
+                <a href="#"><img src="imagens/index/footer/button.png" alt="Twitter"></a>
+            </ul>
+            <ul><p class="footer-email">ola@acheiporai</p></ul>
+        </div>
+    </div>
+
+    <div class="footer-copyright">
+        <div class="container">
+            <p>Todos os direitos reservados - Encontrei por Aí | 2025</p>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

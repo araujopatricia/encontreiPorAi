@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+    <link rel="stylesheet" href="css/perfil.css">
+</head>
+<body>
+<header>
+    <div class="container nav-container">
+        <div>
+            <a href="index.html">
+                <img src="imagens/index/logo.svg" alt="Encontrei por aí">
+            </a>
+        </div>
+
+        <div class="nav-menu">
+            <a href="inicio.html" class="nav-item">
+                <img src="imagens/index/home.svg" alt="Início">
+                Início
+            </a>
+            <a href="parceiros.html" class="nav-item">
+                <img src="imagens/index/java.png">
+                Parceiros
+            </a>
+            <a href="forum.html" class="nav-item">
+                <img src="imagens/index/forum.png" class="nav-icon forum-icon">
+                Fórum
+            </a>
+            <a href="check-in.html" class="nav-item">
+                <img src="imagens/index/qrCode.png" class="nav-icon checkin-icon">
+                Check-in
+            </a>
+            <a href="perfil.html" class="nav-item">
+                <img src="imagens/index/perfil.png" class="nav-icon profile-icon">
+                Perfil
+            </a>
+        </div>
+    </div>
+</header>
+<div class="container">
+    <!-- Sidebar esquerda -->
+    <div class="sidebar">
+        <div class="profile-header">
+            <img src="imagens/feed/perfil2.jpg" alt="Eric Vieira" class="profile-avatar">
+            <div class="profile-name">Eric Vieira</div>
+            <div class="profile-location">
+                <span class="location-dot"></span>
+                Niterói - RJ
+            </div>
+        </div>
+
+        <div class="profile-description">
+            Membro desde Junho de 2025<br><br>
+            Amante de livros, viciado em café e entusiasta de praia de Niterói. Adoro descobrir novos lugares e
+            compartilhar livros com nossa comunidade.
+        </div>
+
+        <div class="stats">
+            <div class="stat-item">
+                <span class="stat-number">18</span>
+                <div class="stat-label">Livros liberados</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">32</span>
+                <div class="stat-label">Livros encontrados</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">15</span>
+                <div class="stat-label">Check-ins</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">3</span>
+                <div class="stat-label">Debates alcançados</div>
+            </div>
+        </div>
+
+        <div class="badges">
+            <h3>Badges</h3>
+            <div class="badge-item">
+                <div class="badge-icon green">✓</div>
+                Descobridor de livros
+            </div>
+            <div class="badge-item">
+                <div class="badge-icon orange">⭐</div>
+                Mestre do café
+            </div>
+        </div>
+
+        <div class="interests">
+            <h3>Interesses</h3>
+            <div class="interest-tags">
+                <span class="interest-tag">Ficção</span>
+                <span class="interest-tag">Biografias</span>
+                <span class="interest-tag">Poesia</span>
+                <span class="interest-tag">História</span>
+                <span class="interest-tag">Romance</span>
+            </div>
+        </div>
+
+        <button class="btn-sair">Sair ➤</button>
+    </div>
+
+    <!-- Conteúdo principal -->
+    <div class="main-content">
+        <div class="top-nav">
+            <div class="nav-tabs">
+                <a href="#" class="nav-tab active">Perfil</a>
+                <a href="#" class="nav-tab">Notificações</a>
+                <a href="#" class="nav-tab">Privacidade</a>
+            </div>
+        </div>
+
+        <div class="edit-header">
+            <div>
+                <h1 class="edit-title">Editar perfil</h1>
+                <p class="edit-subtitle">Mantenha sua conta Junho de 2025</p>
+            </div>
+        </div>
+
+        <!-- Foto de perfil -->
+        <div class="form-section">
+            <h2 class="section-title">Foto de perfil</h2>
+            <div class="avatar-upload">
+                <img src="imagens/feed/perfil2.jpg" alt="Avatar" class="avatar-preview">
+                <button class="upload-btn">Enviar foto ▼</button>
+            </div>
+        </div>
+
+        <!-- Informações básicas -->
+        <div class="form-section">
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label">Nome</label>
+                    <input type="text" class="form-input" value="Eric Vieira">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-input" value="ericvieira@email.com.br">
+                </div>
+            </div>
+
+            <div class="form-group full-width">
+                <label class="form-label">Bio</label>
+                <textarea class="form-input form-textarea">Amante de livros, viciado em café e entusiasta de praia de Niterói. Adoro descobrir novos lugares e compartilhar livros com nossa comunidade.</textarea>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Localização</label>
+                <select class="form-input form-select">
+                    <option>Niterói - RJ</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Interesses -->
+        <div class="form-section">
+            <h2 class="section-title">Interesses</h2>
+            <p style="color: #777; font-size: 13px; margin-bottom: 15px;">Selecione seus gêneros favoritos</p>
+
+            <div class="interests-edit">
+                <div class="current-interests">
+                        <span class="interest-tag-edit">
+                            Ficção <button class="remove-tag">×</button>
+                        </span>
+                    <span class="interest-tag-edit gray">
+                            Biografias <button class="remove-tag">×</button>
+                        </span>
+                    <span class="interest-tag-edit gray">
+                            Poesia <button class="remove-tag">×</button>
+                        </span>
+                    <span class="interest-tag-edit gray">
+                            História <button class="remove-tag">×</button>
+                        </span>
+                    <span class="interest-tag-edit gray">
+                            Romance <button class="remove-tag">×</button>
+                        </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botões de ação -->
+        <div class="form-actions">
+            <button class="btn-cancel">Excluir conta</button>
+            <button class="btn-save">Salvar alterações</button>
+        </div>
+
+        <!-- Atividade recente -->
+        <div class="recent-activity">
+            <h2 class="section-title">Atividade recente</h2>
+
+            <div class="activity-item">
+                <div class="activity-icon blue">📚</div>
+                <div class="activity-content">
+                    <div class="activity-title">Liberou "Ensaio sobre a Cegueira"</div>
+                    <div class="activity-time">2 dias atrás</div>
+                </div>
+            </div>
+
+            <div class="activity-item">
+                <div class="activity-icon green">📍</div>
+                <div class="activity-content">
+                    <div class="activity-title">Fez check-in em "Dom Casmurro" em Café Liberdade</div>
+                    <div class="activity-time">3 dias atrás</div>
+                </div>
+            </div>
+
+            <div class="activity-item">
+                <div class="activity-icon orange">⭐</div>
+                <div class="activity-content">
+                    <div class="activity-title">Avaliou "O Alquimista" com 5 estrelas</div>
+                    <div class="activity-time">1 semana atrás</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="container footer-main">
+        <div class="footer-description">
+            <img src="imagens/logo.svg" alt="Encontrei por aí">
+            <p>Criando uma comunidade de leitores através de livros que viajam pelo mundo. Deixe um livro, encontre um
+                livro, junte-se à jornada.</p>
+        </div>
+
+        <div class="footer-links">
+            <div class="footer-menu">
+                <ul>
+                    <li><a href="#">Navegue</a></li>
+                    <li><a href="#">Início</a></li>
+                    <li><a href="#">Descubra</a></li>
+                    <li><a href="#">Parceiros</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-menu">
+                <ul>
+                    <li><a href="#">Sobre</a></li>
+                    <li><a href="#">Nossa História</a></li>
+                    <li><a href="#">Como funciona</a></li>
+                    <li><a href="#">Cafés parceiros</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-menu">
+                <ul>
+                    <li><a href="#">Comunidade</a></li>
+                    <li><a href="#">Resgistrar um livro</a></li>
+                    <li><a href="#">Encontrar um livro</a></li>
+                    <li><a href="#">Classificação</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-menu">
+            <ul class="social-icons">
+                <li><a href="#"> Conecte-se</a></li>
+                <a href="#"><img src="imagens/index/footer/instagram.png" alt="Instagram"></a>
+                <a href="#"><img src="imagens/index/footer/facebook.png" alt="Facebook"></a>
+                <a href="#"><img src="imagens/index/footer/twiiter.png" alt="Instagram"></a>
+                <a href="#"><img src="imagens/index/footer/button.png" alt="Twitter"></a>
+            </ul>
+            <ul><p class="footer-email">ola@acheiporai</p></ul>
+        </div>
+    </div>
+
+    <div class="footer-copyright">
+        <div class="container">
+            <p>Todos os direitos reservados - Encontrei por Aí | 2025</p>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

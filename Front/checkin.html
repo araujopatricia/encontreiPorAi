@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check-in</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Logo Encontrei" class="logo">
+        <nav>
+            <a href="#">Início</a>
+            <a href="#">Favoritos</a>
+            <a href="#" style="color: #6b48ff;">Perfil</a> <!-- Ajuste inline -->
+            <a href="#">Sair</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="checkinArea">
+            <h2>Check-in de um livro encontrado</h2>
+            <p>Encontrei um livro! Faça o check-in para confirmar sua leitura!</p>
+
+            <form class="checkinForm">
+                <label for="book-title">Título do Livro:</label>
+                <input type="text" id="book-title" name="book-title" placeholder="Ex: Dom Quixote" required>
+
+                <label for="location">Localização:</label>
+                <input type="text" id="location" name="location" placeholder="Ex: Café Cultura" required>
+
+                <label for="comment">Comentário:</label>
+                <textarea id="comment" name="comment" placeholder="Escreva seu comentário"></textarea>
+
+                <button type="submit" class="submitBtn">Fazer Check-in</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <img src="logo.png" alt="Logo Encontrei" class="footer-logo">
+            <div class="footer-links">
+                <a href="#">Notícias</a>
+                <a href="#">Sobre</a>
+                <a href="#">Contato</a>
+                <a href="#">Compre livros</a>
+            </div>
+        </div>
+        <p>Todo o direito reservado - Encontrei em 14/05/2025</p>
+    </footer>
+</body>
+</html>
