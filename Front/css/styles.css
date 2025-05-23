@@ -7,7 +7,7 @@
 }
 
 body {
-    background-color: #f8f8e4; /* Fundo creme claro */
+    background-color: #f8f8e4;
 }
 
 .container {
@@ -86,7 +86,6 @@ header {
     background-size: contain;
 }
 
-/* Ícones do menu - você precisará substituir com seus próprios ícones */
 .home-icon {
     background-image: url('imagens/icons/home.svg');
 }
@@ -537,7 +536,7 @@ header {
 }
 
 footer {
-    background-color: #f8f8e4; /* Fundo creme claro */
+    background-color: #F9F1DB;
     color: #333;
     padding: 20px 0 0 0;
     margin-top: 30px;

@@ -4,56 +4,190 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fórum</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/forum.css">
 </head>
 <body>
     <header>
-        <img src="logo.png" alt="Logo Encontrei" class="logo">
-        <nav>
-            <a href="#">Início</a>
-            <a href="#" style="color: #6b48ff;">Favoritos</a> <!-- Ajuste inline -->
-            <a href="#">Perfil</a>
-            <a href="#">Sair</a>
-        </nav>
-    </header>
+    <div class="container nav-container">
+        <div>
+            <a href="index.html">
+                <img src="imagens/index/logo.svg" alt="Encontrei por aí">
+            </a>
+        </div>
 
+        <div class="nav-menu">
+            <a href="inicio.html" class="nav-item">
+                <img src="imagens/index/home.svg" alt="Início">
+                Início
+            </a>
+            <a href="parceiros.html" class="nav-item">
+                <img src="imagens/index/java.png">
+                Parceiros
+            </a>
+            <a href="forum.html" class="nav-item">
+                <img src="imagens/index/forum.png" class="nav-icon forum-icon">
+                Fórum
+            </a>
+            <a href="check-in.html" class="nav-item">
+                <img src="imagens/index/qrCode.png" class="nav-icon checkin-icon">
+                Check-in
+            </a>
+            <a href="perfil.html" class="nav-item">
+                <img src="imagens/index/perfil.png" class="nav-icon profile-icon">
+                Perfil
+            </a>
+        </div>
+    </div>
+</header>
     <main>
-        <section class="forumSection">
-            <h2>Fórum</h2>
-            <p>Venha trocar uma ideia e participar da rede de compartilhamento de livros</p>
 
-            <div class="postContainer">
-                <div class="postItem">
-                    <img src="user1.jpg" alt="Foto de Maria Silva" class="userImg">
-                    <div class="postText">
-                        <h4>Maria Silva</h4>
-                        <p>Qual o melhor livro que vocês leram nos últimos 3 meses?</p>
-                        <span>05:19 - 14/05/2025</span>
-                    </div>
-                </div>
-                <div class="postItem">
-                    <img src="user2.jpg" alt="Foto de João Pereira" class="userImg">
-                    <div class="postText">
-                        <h4>João Pereira</h4>
-                        <p>Recomendo o livro "A Sombra do Vento" de Carlos Ruiz Zafón, um clássico que mistura mistério e literatura.</p>
-                        <span>05:20 - 14/05/2025</span>
-                    </div>
-                </div>
-            </div>
-        </section>
+  <div class="description">
+    <h1>Fórum</h1>
+    <p>Descubra cafés, livrarias e bibliotecas participantes da nossa rede de compartilhamento de livros</p>
+  </div>
+
+  <div class="search-bar">
+    <input type="text" placeholder="Buscar">
+  </div>
+
+  <div class="tabs">
+    <a href="#" class="active">Discussões</a>
+    <a href="#">Todos os tópicos</a>
+    <a href="#">Discussões de livros</a>
+    <a href="#">Locais de libertação</a>
+    <a href="#">Encontros & Eventos</a>
+  </div>
+
+  <div class="topic-list">
+    <div class="topic">
+      <img src="imagens/index/recemChegados/livro1.png" alt="Avatar">
+      <div class="topic-content">
+        <h3>Quais são as melhores livros para ler durante um voo longo?</h3>
+        <p>Estou procurando recomendações de livros para ler durante 14h de viagem</p>
+        <div class="tags">
+          <span>#viagem</span>
+          <span>#livro</span>
+          <span>#conselhos</span>
+        </div>
+      </div>
+      <div class="topic-stats">
+        <span><img src=" " alt="Like"> 12</span>
+        <span><img src=" " alt="Comment"> 5</span>
+        <span><img src=" " alt="Share"> 3</span>
+      </div>
+    </div>
+
+    <div class="topic">
+      <img src="imagens/index/recemChegados/livro1.png" alt="Avatar">
+      <div class="topic-content">
+        <h3>Quem mais ainda lê a JK </h3>
+        <p>Harry Potter é cringer?</p>
+        <div class="tags">
+          <span>#Harrypotter</span>
+          <span>#milenios</span>
+          <span>#genz</span>
+        </div>
+      </div>
+      <div class="topic-stats">
+        <span><img src="" alt="Like"> 8</span>
+        <span><img src="" alt="Comment"> 4</span>
+        <span><img src="" alt="Share"> 2</span>
+      </div>
+    </div>
+
+    <div class="topic">
+      <img src="imagens/index/recemChegados/livro1.png" alt="Avatar">
+      <div class="topic-content">
+        <h3>É muito tarde para começar  a ler aos 40 anos?</h3>
+        <p>Tenho 42 anos e estou pensando em começar a ler. É muito tarde para isso?</p>
+        <div class="tags">
+          <span>#hobby</span>
+          <span>#leitura</span>
+          <span>#aprendizado</span>
+        </div>
+      </div>
+      <div class="topic-stats">
+        <span><img src="" alt="Like"> 15</span>
+        <span><img src="" alt="Comment"> 7</span>
+        <span><img src="" alt="Share"> 4</span>
+      </div>
+    </div>
+
+    <div class="topic">
+      <img src="imagens/index/recemChegados/livro1.png" alt="Avatar">
+      <div class="topic-content">
+        <h3>Você recomendaria um livro online de fotografia para iniciantes?</h3>
+        <p>Quero aprender fotografia, mas sou iniciante. Alguém pode recomendar um bom livro online?</p>
+        <div class="tags">
+          <span>#fotografia</span>
+          <span>#livro</span>
+          <span>#iniciante</span>
+        </div>
+      </div>
+      <div class="topic-stats">
+        <span><img src="" alt="Like"> 10</span>
+        <span><img src="" alt="Comment"> 3</span>
+        <span><img src="" alt="Share"> 1</span>
+      </div>
+    </div>
+  </div>
+
     </main>
 
-    <footer>
-        <div class="footer-content">
-            <img src="logo.png" alt="Logo Encontrei" class="footer-logo">
-            <div class="footer-links">
-                <a href="#">Notícias</a>
-                <a href="#">Sobre</a>
-                <a href="#">Contato</a>
-                <a href="#">Compre livros</a>
+<footer>
+    <div class="container footer-main">
+        <div class="footer-description">
+            <img src="imagens/logo.svg" alt="Encontrei por aí">
+            <p>Criando uma comunidade de leitores através de livros que viajam pelo mundo. Deixe um livro, encontre um
+                livro, junte-se à jornada.</p>
+        </div>
+
+        <div class="footer-links">
+            <div class="footer-menu">
+                <ul>
+                    <li><a href="#">Navegue</a></li>
+                    <li><a href="#">Início</a></li>
+                    <li><a href="#">Descubra</a></li>
+                    <li><a href="#">Parceiros</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-menu">
+                <ul>
+                    <li><a href="#">Sobre</a></li>
+                    <li><a href="#">Nossa História</a></li>
+                    <li><a href="#">Como funciona</a></li>
+                    <li><a href="#">Cafés parceiros</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-menu">
+                <ul>
+                    <li><a href="#">Comunidade</a></li>
+                    <li><a href="#">Resgistrar um livro</a></li>
+                    <li><a href="#">Encontrar um livro</a></li>
+                    <li><a href="#">Classificação</a></li>
+                </ul>
             </div>
         </div>
-        <p>Todo o direito reservado - Encontrei em 14/05/2025</p>
-    </footer>
+
+        <div class="footer-menu">
+            <ul class="social-icons">
+                <li><a href="#"> Conecte-se</a></li>
+                <a href="#"><img src="imagens/index/footer/instagram.png" alt="Instagram"></a>
+                <a href="#"><img src="imagens/index/footer/facebook.png" alt="Facebook"></a>
+                <a href="#"><img src="imagens/index/footer/twiiter.png" alt="Instagram"></a>
+                <a href="#"><img src="imagens/index/footer/button.png" alt="Twitter"></a>
+            </ul>
+            <ul><p class="footer-email">ola@acheiporai</p></ul>
+        </div>
+    </div>
+
+    <div class="footer-copyright">
+        <div class="container">
+            <p>Todos os direitos reservados - Encontrei por Aí | 2025</p>
+        </div>
+    </div>
+</footer>
 </body>
 </html>
