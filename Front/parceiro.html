@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encontrei por aí - Plataforma de compartilhamento de livros</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header>
+    <div class="container nav-container">
+        <div>
+            <a href="index.html">
+                <img src="imagens/index/logo.svg" alt="Encontrei por aí">
+            </a>
+        </div>
+
+        <div class="nav-menu">
+            <a href="index.html" class="nav-item">
+                <img src="imagens/index/home.svg" alt="Início">
+                Início
+            </a>
+            <a href="parcerias.html" class="nav-item">
+                <img src="imagens/index/java.png">
+                Parceiros
+            </a>
+            <a href="forum.html" class="nav-item">
+                <img src="imagens/index/forum.png" class="nav-icon forum-icon">
+                Fórum
+            </a>
+            <a href="checkin.html" class="nav-item">
+                <img src="imagens/index/qrCode.png" class="nav-icon checkin-icon">
+                Check-in
+            </a>
+            <a href="perfil.html" class="nav-item">
+                <img src="imagens/index/perfil.png" class="nav-icon profile-icon">
+                Perfil
+            </a>
+        </div>
+    </div>
+</header>
+<div class="carousel-container">
+    <div class="carousel" id="carousel">
+        <img src="imagens/parceiro/image.png" alt="Café Exterior">
+        <img src="imagens/parceiro/image.png" alt="Arte na Parede">
+        <img src="imagens/parceiro/image.png" alt="Interior com Plantas">
+    </div>
+    <button class="carousel-button prev" onclick="moveCarousel(-1)">lalalla</button>
+    <button class="carousel-button next" onclick="moveCarousel(1)">lalala;</button>
+</div>
+
+<script>
+    let currentIndex = 0;
+    const carousel = document.getElementById('carousel');
+    const totalImages = carousel.children.length;
+
+    function moveCarousel(direction) {
+        currentIndex += direction;
+
+        if (currentIndex < 0) {
+            currentIndex = totalImages - 1;
+        } else if (currentIndex >= totalImages) {
+            currentIndex = 0;
+        }
+
+        const offset = -currentIndex * (543 + 40); /* largura da imagem + gap */
+        carousel.style.transform = `translateX(${offset}px)`;
+
+        if (window.innerWidth <= 768) {
+            carousel.style.transform = `translateX(${-currentIndex * (window.innerWidth + 20)}px)`;
+        }
+    }
+
+    window.addEventListener('resize', () => {
+        moveCarousel(0);
+    });
+</script>
+<div class="container">
+    <header class="top-bar">
+      <button class="back-button">← Voltar</button>
+    </header>
+
+    <section class="cafe-info">
+      <div class="title">
+        <h1>Café Cultura</h1>
+        <span class="tag">Cafeteria</span>
+      </div>
+      <p class="desc">
+        Um café acolhedor com uma estante dedicada à troca de livros onde os viajantes podem deixar e encontrar livros. Aproveite um café especial enquanto explora a coleção.
+      </p>
+      <div class="tags">
+        <span>Wi-Fi Grátis</span>
+        <span>Área Externa</span>
+        <span>Troca de livros</span>
+      </div>
+      <div class="info">
+        <span>🕘 9:00 - 20:00</span>
+        <span>📞 (21) 9987-9987</span>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="main-section">
+        <h2>Eventos próximos</h2>
+        <div class="events">
+          <div class="card">
+            <img src="https://via.placeholder.com/300x180?text=Clube+do+Livro" alt="Clube do Livro">
+            <h3>Encontro do Clube do Livro</h3>
+            <p>Toda terça às 19:00<br>Junte-se a nós para este evento especial. Traga seus amigos e compartilhe sua paixão por livros!</p>
+            <button class="reserve-btn">Reservar lugar</button>
+          </div>
+
+          <div class="card">
+            <img src="https://via.placeholder.com/300x180?text=Noite+de+Poesia" alt="Noite de Poesia">
+            <h3>Noite de Poesia</h3>
+            <p>Última quinta do mês às 18:30<br>Junte-se a nós para este evento especial. Traga seus amigos e compartilhe sua paixão por livros!</p>
+            <button class="reserve-btn">Reservar lugar</button>
+          </div>
+        </div>
+      </div>
+
+      <aside class="sidebar">
+        <section class="checkin">
+          <h3>Faça seu Check-in</h3>
+          <p>Está visitando Café Serenidade? Faça check-in com o livro que encontrou por aí!</p>
+          <button class="checkin-btn">Check-in</button>
+        </section>
+
+        <section class="ratings">
+          <h3>Avaliações</h3>
+          <p><strong>⭐ 4.0</strong> (15 avaliações)</p>
+          <div class="review">
+            <strong>Ana Silva</strong><br>
+            Ótimo local para leitores! Café delicioso e ambiente acolhedor.
+          </div>
+          <div class="review">
+            <strong>Carlos Eduardo</strong><br>
+            Boa seleção de livros, mas o wi-fi é um pouco instável.
+          </div>
+          <button class="view-all">Ver todas avaliações</button>
+        </section>
+
+        <section class="share">
+          <h3>Compartilhar</h3>
+          <p>Convide seus amigos para conhecer este local!</p>
+          <button class="share-btn">Compartilhar 🔗</button>
+        </section>
+      </aside>
+    </section>
+  </div>
+<footer>
+    <div class="container footer-main">
+        <div class="footer-description">
+            <img src="imagens/logo.svg" alt="Encontrei por aí">
+            <p>Criando uma comunidade de leitores através de livros que viajam pelo mundo. Deixe um livro, encontre um
+                livro, junte-se à jornada.</p>
+        </div>
+
+        <div class="footer-links">
+            <div class="footer-menu">
+                <ul>
+                    <li><a href="#">Navegue</a></li>
+                    <li><a href="#">Início</a></li>
+                    <li><a href="#">Descubra</a></li>
+                    <li><a href="#">Parceiros</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-menu">
+                <ul>
+                    <li><a href="#">Sobre</a></li>
+                    <li><a href="#">Nossa História</a></li>
+                    <li><a href="#">Como funciona</a></li>
+                    <li><a href="#">Cafés parceiros</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-menu">
+                <ul>
+                    <li><a href="#">Comunidade</a></li>
+                    <li><a href="#">Resgistrar um livro</a></li>
+                    <li><a href="#">Encontrar um livro</a></li>
+                    <li><a href="#">Classificação</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-menu">
+            <ul class="social-icons">
+                <li><a href="#"> Conecte-se</a></li>
+                <a href="#"><img src="imagens/index/footer/instagram.png" alt="Instagram"></a>
+                <a href="#"><img src="imagens/index/footer/facebook.png" alt="Facebook"></a>
+                <a href="#"><img src="imagens/index/footer/twiiter.png" alt="Instagram"></a>
+                <a href="#"><img src="imagens/index/footer/button.png" alt="Twitter"></a>
+            </ul>
+            <ul><p class="footer-email">ola@acheiporai</p></ul>
+        </div>
+    </div>
+
+    <div class="footer-copyright">
+        <div class="container">
+            <p>Todos os direitos reservados - Encontrei por Aí | 2025</p>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
