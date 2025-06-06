@@ -57,12 +57,19 @@ TEMPLATE = """
 <head>
     <title>Gerador de QR Code</title>
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+        body { font-family: Arial,
+                sans-serif; 
+                text-align: center; 
+                padding: 20px; 
+                background-color: 
+                black; 
+                color: white;
+                }
         .error { color: red; }
         .success { color: green; }
         img { margin-top: 20px; }
         input[type="text"] { width: 300px; padding: 10px; }
-        input[type="submit"] { padding: 10px 20px; margin: 10px; }
+        input[type="submit"] { padding: 10px 20px; margin: 10px; background-color: blue;color: white;}
     </style>
 </head>
 <body>
