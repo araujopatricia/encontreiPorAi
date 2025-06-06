@@ -1,7 +1,7 @@
 import qrcode
 import customtkinter
 from tkinter import messagebox
-import os
+from PIL import Image, ImageTk
 
 
 def qr():
@@ -18,7 +18,7 @@ def qr():
         qr_code = qrcode.QRCode(
             version=1,  # Controla o tamanho do QR Code
             error_correction=qrcode.constants.ERROR_CORRECT_L,
-            box_size=10,
+            box_size=8,  # Reduzido para caber melhor na tela
             border=4,
         )
 
@@ -33,21 +33,35 @@ def qr():
         nome_arquivo = "qrcode_gerado.png"
         imagem.save(nome_arquivo)
 
-        # Mostra mensagem de sucesso
-        messagebox.showinfo("Sucesso", f"QR Code gerado com sucesso!\nSalvo como: {nome_arquivo}")
-        print(f"QR Code gerado para: {entrada}")
+        # Redimensiona a imagem para exibir na interface
+        imagem_redimensionada = imagem.resize((120, 120), Image.Resampling.LANCZOS)
 
-        # Limpa o campo de entrada
-        entrada_usuario.delete(0, 'end')
+        # Converte para formato que o CustomTkinter pode usar
+        foto = ImageTk.PhotoImage(imagem_redimensionada)
+
+        # Atualiza o label da imagem
+        label_imagem.configure(image=foto, text="")
+        label_imagem.image = foto  # Mantém uma referência da imagem
+
+        # Mostra o label da imagem se estava oculto
+        label_imagem.pack(padx=20, pady=20)
+
+        # Atualiza o label de status
+        label_status.configure(
+            text=f"✅ QR Code gerado com sucesso!\nTexto: {entrada[:30]}{'...' if len(entrada) > 30 else ''}",
+            text_color="green")
+
+        print(f"QR Code gerado para: {entrada}")
 
     except Exception as e:
         messagebox.showerror("Erro", f"Erro ao gerar QR Code: {str(e)}")
+        label_status.configure(text="❌ Erro ao gerar QR Code", text_color="red")
 
 
 # Configuração da janela
 janela = customtkinter.CTk()
 janela.title("Gerador QR Code")
-janela.geometry("350x450")
+janela.geometry("400x700")  # Aumentado para acomodar a imagem
 
 # Configura o tema
 customtkinter.set_appearance_mode("dark")  # ou "light"
@@ -89,14 +103,53 @@ buttom = customtkinter.CTkButton(
 )
 buttom.pack(padx=20, pady=20)
 
-# Adiciona informações
-info_label = customtkinter.CTkLabel(
+# Label para exibir a imagem do QR Code
+label_imagem = customtkinter.CTkLabel(
     janela,
-    text="O QR Code será salvo como 'qrcode_gerado.png'\nna mesma pasta do programa",
+    text="\nO QR Code aparecerá aqui\napós ser gerado",
+    font=customtkinter.CTkFont(size=14),
+    text_color="gray"
+)
+# Inicialmente não mostra o label da imagem
+# label_imagem.pack(padx=20, pady=20)
+
+# Label para status
+label_status = customtkinter.CTkLabel(
+    janela,
+    text="Digite um texto ou link e clique em 'Gerar QR Code'",
     font=customtkinter.CTkFont(size=12),
     text_color="gray"
 )
-info_label.pack(padx=20, pady=(20, 10))
+label_status.pack(padx=20, pady=10)
+
+
+# Função para limpar QR Code
+def limpar_qr():
+    label_imagem.pack_forget()  # Remove a imagem da tela
+    entrada_usuario.delete(0, 'end')  # Limpa o campo
+    label_status.configure(text="Digite um texto ou link e clique em 'Gerar QR Code'",
+                           text_color="gray")
+
+
+# Botão para limpar
+buttom_limpar = customtkinter.CTkButton(
+    janela,
+    text="Limpar",
+    command=limpar_qr,
+    width=100,
+    height=30,
+    font=customtkinter.CTkFont(size=14)
+)
+buttom_limpar.pack(padx=20, pady=10)
+
+# Adiciona informações
+info_label = customtkinter.CTkLabel(
+    janela,
+    text=" O QR Code também é salvo como 'qrcode_gerado.png'",
+    font=customtkinter.CTkFont(size=11),
+    text_color="gray"
+)
+info_label.pack(padx=20, pady=(10, 20))
 
 # Permite pressionar Enter para gerar
 entrada_usuario.bind('<Return>', lambda event: qr())
