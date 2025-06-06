@@ -1,17 +1,17 @@
+from flask import Flask, request, send_file, render_template_string
 import qrcode
-import customtkinter
-from tkinter import messagebox
-from PIL import Image, ImageTk
+from PIL import Image
+import io
+import os
 
+app = Flask(__name__)
 ARQUIVO_SAIDA = "qrcode_gerado.png"
 TAMANHO_IMAGEM = (200, 200)
 COR_FUNDO = "white"
 COR_QR = "black"
-TEMA_APARENCIA = "dark"
-TEMA_CORES = "blue"
 
-def gerar_qrcode(texto: str, nome_arquivo: str) -> Image.Image:
-    """Gera e salva um QR Code com o texto informado."""
+
+def gerar_qrcode(texto: str) -> Image.Image:
     qr_code = qrcode.QRCode(
         version=1,
         error_correction=qrcode.constants.ERROR_CORRECT_L,
@@ -21,118 +21,72 @@ def gerar_qrcode(texto: str, nome_arquivo: str) -> Image.Image:
     qr_code.add_data(texto)
     qr_code.make(fit=True)
     imagem = qr_code.make_image(fill_color=COR_QR, back_color=COR_FUNDO)
-    imagem.save(nome_arquivo)
     return imagem
 
-def gerar_qrcode_gui():
-    entrada = entrada_usuario.get().strip()
 
-    if not entrada:
-        messagebox.showerror("Erro", "Por favor, digite um link ou texto!")
-        return
+@app.route('/', methods=['GET', 'POST'])
+def index():
+    if request.method == 'POST':
+        texto = request.form.get('texto', '').strip()
+        if not texto:
+            return render_template_string(TEMPLATE, erro="Por favor, digite um link ou texto!", imagem=None)
 
-    try:
-        imagem = gerar_qrcode(entrada, ARQUIVO_SAIDA)
-        imagem_redimensionada = imagem.resize(TAMANHO_IMAGEM, Image.Resampling.LANCZOS)
-        foto = ImageTk.PhotoImage(imagem_redimensionada)
+        try:
+            imagem = gerar_qrcode(texto)
 
-        label_imagem.configure(image=foto, text="")
-        label_imagem.image = foto
-        label_imagem.pack(padx=20, pady=20)
+            imagem_redimensionada = imagem.resize(TAMANHO_IMAGEM, Image.Resampling.LANCZOS)
 
-        label_status.configure(
-            text=f"✅ QR Code gerado com sucesso!\nTexto: {entrada[:30]}{'...' if len(entrada) > 30 else ''}",
-            text_color="green"
-        )
+            img_io = io.BytesIO()
+            imagem_redimensionada.save(img_io, 'PNG')
+            img_io.seek(0)
 
-    except Exception as e:
-        messagebox.showerror("Erro", f"Erro ao gerar QR Code: {str(e)}")
-        label_status.configure(text="❌ Erro ao gerar QR Code", text_color="red")
+            imagem.save(ARQUIVO_SAIDA)
 
-def limpar_qrcode():
-    label_imagem.pack_forget()
-    entrada_usuario.delete(0, 'end')
-    resetar_status()
+            import base64
+            img_base64 = base64.b64encode(img_io.getvalue()).decode('utf-8')
+            return render_template_string(TEMPLATE, erro=None, imagem=img_base64, texto=texto)
+        except Exception as e:
+            return render_template_string(TEMPLATE, erro=f"Erro ao gerar QR Code: {str(e)}", imagem=None)
 
-def resetar_status():
-    label_status.configure(
-        text="Digite um texto ou link e clique em 'Gerar QR Code'",
-        text_color="gray"
-    )
+    return render_template_string(TEMPLATE, erro=None, imagem=None)
 
-def criar_interface():
-    global entrada_usuario, label_imagem, label_status
 
-    customtkinter.set_appearance_mode(TEMA_APARENCIA)
-    customtkinter.set_default_color_theme(TEMA_CORES)
+TEMPLATE = """
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gerador de QR Code</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+        .error { color: red; }
+        .success { color: green; }
+        img { margin-top: 20px; }
+        input[type="text"] { width: 300px; padding: 10px; }
+        input[type="submit"] { padding: 10px 20px; margin: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Gerador de QR Code</h1>
+    <p>Digite o link ou texto para gerar o QR Code:</p>
+    <form method="post">
+        <input type="text" name="texto" placeholder="Ex: https://www.google.com">
+        <br>
+        <input type="submit" value="Gerar QR Code">
+    </form>
+    {% if erro %}
+        <p class="error">{{ erro }}</p>
+    {% endif %}
+    {% if imagem %}
+        <p class="success">✅ QR Code gerado com sucesso! Texto: {{ texto|truncate(30, true, '...') }}</p>
+        <img src="data:image/png;base64,{{ imagem }}" alt="QR Code">
+    {% endif %}
+    {% if not erro and not imagem %}
+        <p style="color: gray;">O QR Code aparecerá aqui após ser gerado.</p>
+    {% endif %}
+</body>
+</html>
+"""
 
-    janela = customtkinter.CTk()
-    janela.title("Gerador QR Code")
-    janela.geometry("400x700")
+if __name__ == '__main__':
 
-    customtkinter.CTkLabel(
-        janela,
-        text="Gerador de QR Code",
-        font=customtkinter.CTkFont(size=20, weight="bold")
-    ).pack(padx=20, pady=20)
-
-    customtkinter.CTkLabel(
-        janela,
-        text="Digite o link ou texto para gerar o QR Code:",
-        font=customtkinter.CTkFont(size=14)
-    ).pack(padx=20, pady=(0, 10))
-
-    entrada_usuario = customtkinter.CTkEntry(
-        janela,
-        placeholder_text="Ex: https://www.google.com",
-        width=300,
-        height=40
-    )
-    entrada_usuario.pack(padx=20, pady=10)
-
-    customtkinter.CTkButton(
-        janela,
-        text="Gerar QR Code",
-        command=gerar_qrcode_gui,
-        width=200,
-        height=40,
-        font=customtkinter.CTkFont(size=16, weight="bold")
-    ).pack(padx=20, pady=20)
-
-    label_imagem = customtkinter.CTkLabel(
-        janela,
-        text="O QR Code aparecerá aqui após ser gerado",
-        font=customtkinter.CTkFont(size=14),
-        text_color="gray"
-    )
-
-    label_status = customtkinter.CTkLabel(
-        janela,
-        text="",
-        font=customtkinter.CTkFont(size=12)
-    )
-    label_status.pack(padx=20, pady=10)
-    resetar_status()
-
-    customtkinter.CTkButton(
-        janela,
-        text="Limpar",
-        command=limpar_qrcode,
-        width=100,
-        height=30,
-        font=customtkinter.CTkFont(size=14)
-    ).pack(padx=20, pady=10)
-
-    customtkinter.CTkLabel(
-        janela,
-        text="O QR Code também é salvo como 'qrcode_gerado.png'",
-        font=customtkinter.CTkFont(size=11),
-        text_color="gray"
-    ).pack(padx=20, pady=(10, 20))
-
-    entrada_usuario.bind('<Return>', lambda event: gerar_qrcode_gui())
-
-    janela.mainloop()
-
-if __name__ == "__main__":
-    criar_interface()
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
